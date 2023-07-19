@@ -1,0 +1,536 @@
+@import "__resetSetting";
+@import "__basicMixin.scss";
+@import "__basicModal.scss";
+
+
+
+
+
+
+
+
+
+.form__active{
+    display: none;
+}
+.hidden__active{
+    display: none;
+}
+.correct__data{
+    border: 2px solid green;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+}
+// .block
+.title{
+    text-align: center;
+}
+.container{
+    @include container(1200px)
+}
+@keyframes like_beat{
+    0% {
+        width: 80px;
+        height: 80px;
+    }
+    60% {
+        width: 100px;
+        height: 100px;
+    }
+}
+.btn{
+    font-size: 18px;
+    color: #ffffff;
+    padding: 12px;
+    width: 100px;
+    margin: 0 5px;
+    border-radius:10px;
+    transition:all 800ms ease-in-out 0s;
+}
+// block
+.header{
+    height: 105vh;
+    background: #2C2C55;
+    &__top {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background: #222228CC;
+        padding: 12px 0;
+        color: $clWhite;
+    }
+    &__SignUp{
+        color: black;
+        background: #248C46;
+        &:hover{
+            color: $clWhite;
+            background: #2fcd64d1;
+        }
+    }
+    &__logIn{
+        background: #5a5f73d0;
+        &:hover{
+            background: #666a7cfa;
+        }
+    }
+    &__topContent{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        font-size: 22px;
+        line-height: 25px;
+    }
+    &__logoDecor {
+        color: $clPurple;
+        font-weight: 500;
+    }
+    &__title {
+        color: $clWhite;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    &__wrapper {
+        @extend %flex-center;
+    }
+}
+
+.card{
+    max-width: 450px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px 3px rgba(253, 253, 253, 0.334);
+    position: relative;
+    &:hover .card__hover{
+        visibility: visible;
+        opacity: 1;
+    }
+    &__hover{
+        transition: visibility 1s, opacity 1s ease;
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #2c2c558f;
+        border-radius: 15px;
+        &-like{
+            cursor: pointer;
+            animation: like_beat 1.5s ease-out infinite normal running 0s none;
+            transition: all 800ms ease-in-out;
+            &:hover{
+                animation-play-state: paused;
+                stroke: rgba(255, 0, 0, 0.797);
+            }
+        }
+    }
+    &__img{
+        height: 60%;
+        &-item{
+            object-fit:fill;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    }
+    &__title{
+        color: $clPurple;
+        font-size: 28px;
+        padding: 8px 10px;
+    }
+    .card__inner{
+        padding: 10px 20px;
+    }
+    &__text{
+        color: $clWhite;
+        font-size: 20px;
+        padding: 5px 0;
+    }
+    &__decor{
+        color: $clGrey;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    &__num{
+        font-size: 22px;
+    }
+    &__wrapper{
+        @extend %fl-wr-spBetween;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+// выпадающие меню
+.nav {
+    &__profile{
+        position: relative;
+        &:hover .nav__menu{
+            display: block;
+        }
+        &-img{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        &-item {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__menu {
+        position: absolute;
+        display: none;
+        top: 50px;
+        right: 5px;
+        z-index: 100;
+        width: 200px;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    span{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        display: block;
+        color: $clGrey;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    &__userName{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    &__item_fall{
+        position: relative;
+        &:hover .nav__list{
+            display: block;
+        }
+    }
+    &__list{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -198px;
+        width: 100%;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    &__item {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.911);
+        padding: 16px 20px;
+        transition: all 500ms ease-in-out;
+        border-bottom: 1px solid #c9d1d925;
+        &:hover{
+            background: $clPurple;
+            color: $clWhite;
+            cursor: pointer;
+        }
+        &:last-child{
+            border-radius: 0px 0px 6px 6px; 
+        }
+        &:first-child{
+            border-radius: 6px 6px 0px 0px; 
+        }
+    }
+}
+:root {
+    --scrollbarWidth: 12px;
+    --scrollbarBg: grey;
+    --scrollbarThumb: black;
+}
+// setting modal
+
+// Modal Избранного
+.modalFavorites{
+    background: rgba(0, 0, 0, 0.915);
+    &__content{
+        width: 450px;
+        height: 400px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $clWhite;
+        box-shadow: none;
+        position: static;
+        border: 1px solid #ffffff2c;
+    }
+    &__close{
+        top: 4%;
+        right: 5%;
+        color: $clWhite;
+        font-weight: 600;
+    }
+    &__title{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    &__wrapper{
+        height: 90%;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    &__list {
+        height: 100%;
+        overflow-x: scroll;
+        display: flex;
+        scrollbar-color: var(--scrollbarThumb) var(--scrollbarBg);
+        &::-webkit-scrollbar {
+            height: 14px;
+            width: var(--scrollbarWidth);
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--scrollbarBg);
+            border-radius: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbarThumb);
+            border-radius: 6px;
+            border: 3px solid var(--scrollbarBg);
+        }
+    }
+    &__sabtitle{
+        font-size: 20px;
+        margin-top: 5px;
+    }
+    &__item {
+        margin-right: 20px;
+    }
+    &__img {
+        width: 150px;
+        height: 202px;
+        &-item{
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+//Modal Уведомления
+.modalNotification {
+    background: rgba(0, 0, 0, 0.915);
+    &__content {
+        width: 450px;
+        height: 400px;
+        background: $clWhite;
+        border: 1px solid #ffffff2c;
+        border-radius:8px;
+        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
+    }
+    &__title {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    &__success-top {
+        height: 50%;
+        width: 100%;
+        background: #8CC248;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    &__success-bottom{
+        text-align: center;
+        margin-top: 50px;
+    }
+    &__text{
+        color: rgba(0, 0, 0, 0.716);
+        font-size: 18px;
+        line-height: 23.4px;
+        letter-spacing: 2.5px;
+    }
+    &__btn{
+        background: #8CC248;
+        padding: 15px 0;
+        width: 60%;
+        margin-top: 8%;
+        box-shadow: -7px 4px 20px 0px #8CC248;
+        &:hover{
+            background:#8bc248c2 ;
+            box-shadow: none;
+        }
+    }
+}
+
+
+// Modal входа
+.modalEntrance{
+    background: rgba(0, 0, 0, 0.915);
+    &__content{
+        width: 450px;
+        background: $clWhite;
+        box-shadow: none;
+        position: static;
+        border: 1px solid #ffffff2c;
+        padding: 20px;
+        box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
+    }
+    &__close{
+        top: 4%;
+        right: 5%;
+        color: $clWhite;
+        font-weight: 600;
+    }
+    &__group{
+        display: flex;
+        justify-content: space-between;
+        &_choice{
+            width: 50%;
+            font-size:  22px;
+            padding: 15px 0;
+            cursor: pointer;
+            color: black;
+            transition: all 500ms ease-in-out;
+            box-shadow: #1992d497 0px 30px 60px -12px inset, #0f5276d6 0px 18px 36px -28px inset;
+            &:hover{
+                color:$clWhite;
+                background:#1266977b;
+            }
+        }
+        &_active{
+            color:$clWhite;
+            background: #127FBF;
+            &:hover{
+                background: #1992d4c0;
+            }
+        }
+        
+    }
+}
+// form
+.error__data{
+    position: relative;
+    &::before{
+        content: "Ошибка!Проверьте все введеные данные";
+        position: absolute;
+        z-index: 1000;
+        left: 101%;
+        top: 7px;
+        font-size: 18px;
+        color: #f0f4f8;
+        background: #ff0000c2;
+        white-space: nowrap;
+        border-radius: 15px;
+        padding: 10px
+    }
+}
+.form {
+    &__item {
+        margin-bottom: 20px;
+    }
+    &__title{
+        font-size: 36px;
+        background: linear-gradient(251deg, green 2%, rgb(0 165 255 / 75%) 95.49%);
+        background-clip: text;
+        color: transparent;
+        margin: 25px 0;
+    }
+    &__label{
+        display: block;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    &__input {
+        background: #F0F4F8;
+        height: 50px;
+        width: 100%;
+        border-radius: 15px;
+        padding: 0 12px;
+        font-size: 18px;
+        transition: all 500ms ease-in-out;
+        &:focus{
+            box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+        }
+        &::placeholder{
+            font-size: 18px;
+        }
+    }
+    .password{
+        padding: 0 74px 0 12px;
+    }
+    &__item_password {
+        position: relative;
+    }
+    .label__password{
+        @extend %formError;
+    }
+    .form__item_email{
+        position: relative;
+    }
+    .label__email{
+        @extend %formError;
+    }
+    .form__item_login{
+        position: relative;
+    }
+    .label__login{
+        @extend %formError;
+    }
+    .label__confirmPassword{
+        @extend %formError;
+    }
+    &__password{
+        position: relative;
+    }
+    &__counterText{
+        font-size: 17px;
+        position: absolute;
+        bottom: -23px;
+        right: 8px;
+    }
+    &__passwordImg{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 70px;
+    }
+}
+
+.modalEntrance__btn {
+    font-size: 20px;
+    color: $clWhite;
+    font-family:'Times New Roman', Times, serif;
+    width: 100%;
+    padding: 16px;
+    cursor:not-allowed;
+    border-radius: 15px;
+    background: #127FBF;
+    transition: all 500ms ease-in-out;
+    &:hover{
+        color: black;
+        background: #1992d4d6
+    }
+}
+
+// slider
+.slider__navigation{
+    display: flex;
+    justify-content: center;
+}
+.slider__btn{
+    width: 150px;
+    padding: 5px 0;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px $clPurple;
+    color: $clWhite;
+    font-size: 20px;
+    margin: 14px;
+    transition:all 800ms ease-in-out 0s;
+    &:hover{
+        color:black;
+        background: rgba(255, 255, 255, 0.479);
+        box-shadow: 2px 3px 5px $clPurple;
+    }
+}

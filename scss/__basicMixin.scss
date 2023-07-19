@@ -1,0 +1,79 @@
+// ___переменные___
+$OpenSans:'Open Sans', sans-serif;
+$Roboto:'Roboto', sans-serif;
+
+
+$clWhite:white;
+$clPurple:#bf00ff;
+$clGrey:rgba(253, 253, 253, 0.712);
+// ___mixin___
+
+@mixin container($width){
+    max-width: $width;
+    margin: 0 auto;
+    width: 96%;
+}
+
+@mixin media($maxWidth){
+    @media screen and (max-width:$maxWidth){
+        @content
+    }
+}
+
+%fl-wr-spBetween{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+%flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+%formError{
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    left: 101%;
+    top: 15%;
+    color: #f0f4f8;
+    background: #ff0000c2;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 15px;
+    padding: 10px;
+    &::before{
+        content: "";
+        background: url("../img/icon/searchBox/left-arrow.png")left no-repeat;
+        object-fit: cover;
+        padding:8px 10px 8px 10px;
+    }
+}
+// link hover
+%hoverlink{
+    color: black;
+    text-decoration: underline;
+}
+
+//btn hover 
+@mixin hoverBtn($btnCl, $bntBoxSh, $btnBg){
+    color:$btnCl;
+    box-shadow: 4px 2px 3px 2px $bntBoxSh;
+    background: $btnBg;
+}
+
+// animation
+@mixin animation-mixin($name, $toCl, $fromCl) {
+    @keyframes #{$name} {
+        0% {
+            background: $toCl;
+            border: 1px solid #0000009c;
+        }
+        100% {
+            background: $fromCl;
+            border: 2px solid #fff;
+        }
+    }
+}
+
