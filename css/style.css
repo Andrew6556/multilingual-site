@@ -72,6 +72,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
 }
 
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -507,7 +512,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modalEntrance {
-  background: rgba(0, 0, 0, 0.915);
+  background: url("https://yastatic.net/s3/passport-auth-customs/customs/_/B6fHB3f3.jpg") no-repeat center;
+  background-size: cover;
 }
 .modalEntrance__content {
   width: 450px;

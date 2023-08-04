@@ -362,7 +362,8 @@
 
 // Modal входа
 .modalEntrance{
-    background: rgba(0, 0, 0, 0.915);
+    background: url("https://yastatic.net/s3/passport-auth-customs/customs/_/B6fHB3f3.jpg") no-repeat center;
+    background-size: cover;
     &__content{
         width: 450px;
         background: $clWhite;
