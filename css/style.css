@@ -362,106 +362,6 @@ body {
   --scrollbarThumb: black;
 }
 
-.form__SignUp {
-  padding: 30px;
-  transition: all ease-in 0.3s 600ms;
-}
-
-.modalEntrance__btn-LogIn {
-  border: 2px solid #e3e3e3;
-  color: #cacaca;
-  background: transparent;
-  transition: all ease-in 500ms;
-}
-.modalEntrance__btn-LogIn:hover {
-  border: 2px solid #ed2553;
-  color: #ed2553;
-}
-
-.modalEntrance__btn-SignUp {
-  background: white;
-  color: #ed2553;
-  border-radius: 10px;
-}
-
-.close {
-  cursor: pointer;
-}
-.close::before {
-  content: "Х";
-  align-self: flex-end;
-  font-weight: 600;
-}
-
-.form__SignUp-title {
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-.form__SignUp-title::before {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: -30px;
-  height: 158%;
-  width: 5px;
-  background: #ffffff;
-}
-
-.form__LogIn-title {
-  display: inline-flex;
-  justify-content: center;
-  position: relative;
-}
-.form__LogIn-title::before {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: -30px;
-  height: 158%;
-  width: 5px;
-  background: #362B56;
-}
-
-.toggle {
-  cursor: pointer;
-  position: absolute;
-  background: url("../img/icon/addition.png") no-repeat center #ed2553;
-  top: 0;
-  right: -56px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  transition: all ease-in-out 500ms;
-}
-
-.toggle__active {
-  cursor: auto;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 105%;
-  background: #ed2553;
-  border-radius: 12px;
-}
-
-.form__active {
-  transition: 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.hidden__active {
-  display: none;
-}
-
-.correct__data {
-  border: 2px solid green;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-}
-
 .title {
   color: white;
   text-align: center;
@@ -471,6 +371,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   width: 96%;
+}
+
+.close {
+  cursor: pointer;
+}
+.close::before {
+  content: "Х";
+  align-self: flex-end;
+  font-weight: 600;
 }
 
 @keyframes like_beat {
@@ -605,35 +514,32 @@ body {
   position: relative;
   padding: 30px;
 }
-.modalEntrance__close {
-  top: 4%;
-  right: 5%;
-  color: white;
+.modalEntrance__btn {
+  display: block;
+  text-transform: uppercase;
   font-weight: 600;
-}
-.modalEntrance__group {
-  display: flex;
-  justify-content: space-between;
-}
-.modalEntrance__group_choice {
-  width: 50%;
-  font-size: 22px;
-  padding: 15px 0;
-  cursor: pointer;
-  color: black;
+  font-family: "Times New Roman", Times, serif;
+  margin: 0 auto;
+  font-size: 20px;
+  width: 60%;
+  padding: 20px 0;
+  cursor: not-allowed;
   transition: all 500ms ease-in-out;
-  box-shadow: rgba(25, 146, 212, 0.5921568627) 0px 30px 60px -12px inset, rgba(15, 82, 118, 0.8392156863) 0px 18px 36px -28px inset;
 }
-.modalEntrance__group_choice:hover {
-  color: white;
-  background: rgba(18, 102, 151, 0.4823529412);
+.modalEntrance__btn-LogIn {
+  border: 2px solid #e3e3e3;
+  color: #cacaca;
+  background: transparent;
+  transition: all ease-in 500ms;
 }
-.modalEntrance__group_active {
-  color: white;
-  background: #127FBF;
+.modalEntrance__btn-LogIn:hover {
+  border: 2px solid #ed2553;
+  color: #ed2553;
 }
-.modalEntrance__group_active:hover {
-  background: rgba(25, 146, 212, 0.7529411765);
+.modalEntrance__btn-SignUp {
+  background: white;
+  color: #ed2553;
+  border-radius: 10px;
 }
 
 .error__data {
@@ -653,14 +559,65 @@ body {
   padding: 10px;
 }
 
-.SignUp__input {
+.form__SignUp {
+  padding: 30px;
+  transition: all ease-in 0.3s 600ms;
+}
+.form__SignUp-title {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.form__SignUp-title::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -30px;
+  height: 158%;
+  width: 5px;
+  background: #ffffff;
+}
+.form__SignUp-input {
   border-bottom: 1px solid white;
 }
-.SignUp__input:focus {
+.form__SignUp-input::-moz-placeholder {
+  color: rgba(253, 253, 253, 0.712);
+}
+.form__SignUp-input::placeholder {
+  color: rgba(253, 253, 253, 0.712);
+}
+.form__SignUp-input:focus {
   transition: all ease-in-out 500ms;
   border-bottom: 2px solid white;
 }
-
+.form__LogIn-title {
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+}
+.form__LogIn-title::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -30px;
+  height: 158%;
+  width: 5px;
+  background: #362B56;
+}
+.form .form__LogIn-input {
+  border-bottom: 1px solid black;
+}
+.form .form__LogIn-input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.form .form__LogIn-input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.form .form__LogIn-input:focus {
+  border-bottom: 2px solid black;
+}
 .form__item {
   margin-bottom: 35px;
 }
@@ -682,11 +639,9 @@ body {
   transition: all 500ms ease-in-out;
 }
 .form__input::-moz-placeholder {
-  color: rgba(253, 253, 253, 0.712);
   font-size: 18px;
 }
 .form__input::placeholder {
-  color: rgba(253, 253, 253, 0.712);
   font-size: 18px;
 }
 .form__item_email {
@@ -725,17 +680,41 @@ body {
   width: 70px;
 }
 
-.modalEntrance__btn {
-  display: block;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-family: "Times New Roman", Times, serif;
-  margin: 0 auto;
-  font-size: 20px;
-  width: 60%;
-  padding: 20px 0;
-  cursor: not-allowed;
-  transition: all 500ms ease-in-out;
+.toggle {
+  cursor: pointer;
+  position: absolute;
+  background: url("../img/icon/addition.png") no-repeat center #ed2553;
+  top: 0;
+  right: -56px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms;
+}
+
+.toggle__active {
+  cursor: auto;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 105%;
+  background: #ed2553;
+  border-radius: 12px;
+}
+
+.form__active {
+  transition: 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hidden__active {
+  display: none;
+}
+
+.correct__data {
+  border: 2px solid green;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
 
 .slider__navigation {
