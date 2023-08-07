@@ -8,10 +8,16 @@ import {Form} from "../modules/Form.js";
 
 document.querySelector(".toggle").addEventListener("click", function(event){
     // console.log(event.target.querySelector(".form__LogIn").classList.toggle("form__active"))
-    event.target.querySelector(".form__SignUp").classList.toggle("form__active")
-    this.classList.toggle("toggle__active")
+    console.log(event.target.querySelector(".form__SignUp"))
+    event.target.querySelector(".form__SignUp").classList.remove("form__active")
+    this.classList.add("toggle__active")
 })
 
+document.querySelector(".close").addEventListener("click", function(event){
+    console.log(event.target.closest(".form__SignUp"))
+    event.target.closest(".form__SignUp").classList.add("form__active")
+    event.target.closest(".toggle").classList.remove("toggle__active")
+})
 
 
 const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
