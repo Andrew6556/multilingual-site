@@ -394,6 +394,7 @@ body {
 }
 
 .form__SignUp-title {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -403,9 +404,9 @@ body {
   content: "";
   position: absolute;
   bottom: -12px;
-  left: 5px;
-  width: 20%;
-  height: 2px;
+  left: -30px;
+  height: 158%;
+  width: 5px;
   background: #ffffff;
 }
 
@@ -417,10 +418,10 @@ body {
 .form__LogIn-title::before {
   content: "";
   position: absolute;
-  left: 5px;
   bottom: -12px;
-  width: 70%;
-  height: 2px;
+  left: -30px;
+  height: 158%;
+  width: 5px;
   background: #362B56;
 }
 
@@ -652,8 +653,16 @@ body {
   padding: 10px;
 }
 
+.SignUp__input {
+  border-bottom: 1px solid white;
+}
+.SignUp__input:focus {
+  transition: all ease-in-out 500ms;
+  border-bottom: 2px solid white;
+}
+
 .form__item {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 .form__title {
   font-size: 36px;
@@ -665,21 +674,19 @@ body {
   font-size: 18px;
 }
 .form__input {
-  background: #F0F4F8;
+  background: transparent;
   height: 50px;
   width: 100%;
-  border-radius: 15px;
   padding: 0 12px;
   font-size: 18px;
   transition: all 500ms ease-in-out;
 }
-.form__input:focus {
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-}
 .form__input::-moz-placeholder {
+  color: rgba(253, 253, 253, 0.712);
   font-size: 18px;
 }
 .form__input::placeholder {
+  color: rgba(253, 253, 253, 0.712);
   font-size: 18px;
 }
 .form__item_email {
