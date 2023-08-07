@@ -119,6 +119,15 @@ body {
   padding: 8px 10px 8px 10px;
 }
 
+.btn {
+  font-size: 18px;
+  color: #ffffff;
+  padding: 12px;
+  width: 100px;
+  border-radius: 10px;
+  transition: all 800ms ease-in-out 0s;
+}
+
 /* modal */
 .modal {
   position: fixed;
@@ -160,49 +169,6 @@ body {
 .active {
   visibility: hidden;
   opacity: 0;
-}
-
-.form__active {
-  display: none;
-}
-
-.hidden__active {
-  display: none;
-}
-
-.correct__data {
-  border: 2px solid green;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
-}
-
-.title {
-  text-align: center;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 96%;
-}
-
-@keyframes like_beat {
-  0% {
-    width: 80px;
-    height: 80px;
-  }
-  60% {
-    width: 100px;
-    height: 100px;
-  }
-}
-.btn {
-  font-size: 18px;
-  color: #ffffff;
-  padding: 12px;
-  width: 100px;
-  margin: 0 5px;
-  border-radius: 10px;
-  transition: all 800ms ease-in-out 0s;
 }
 
 .header {
@@ -396,6 +362,96 @@ body {
   --scrollbarThumb: black;
 }
 
+.form__SignUp {
+  transition: all ease-in 0.3s 600ms;
+}
+
+.close::before {
+  content: "Х";
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+.form__SignUp-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.form__SignUp-title::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  width: 60%;
+  height: 2px;
+  background: #ffffff;
+}
+
+.form__LogIn-title {
+  display: inline-block;
+  position: relative;
+}
+.form__LogIn-title::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  width: 60%;
+  height: 2px;
+  background: #362B56;
+}
+
+.toggle {
+  position: absolute;
+  background: url("../img/icon/avatar.png") no-repeat center #ed2553;
+  top: 0;
+  right: -56px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms;
+}
+
+.toggle__active {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 110%;
+  background: #ed2553;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.form__active {
+  transition: 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hidden__active {
+  display: none;
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 96%;
+}
+
+@keyframes like_beat {
+  0% {
+    width: 80px;
+    height: 80px;
+  }
+  60% {
+    width: 100px;
+    height: 100px;
+  }
+}
 .modalFavorites {
   background: rgba(0, 0, 0, 0.915);
 }
@@ -512,17 +568,14 @@ body {
 }
 
 .modalEntrance {
-  background: url("https://yastatic.net/s3/passport-auth-customs/customs/_/B6fHB3f3.jpg") no-repeat center;
   background-size: cover;
 }
 .modalEntrance__content {
   width: 450px;
   background: white;
   box-shadow: none;
-  position: static;
-  border: 1px solid rgba(255, 255, 255, 0.1725490196);
+  position: relative;
   padding: 20px;
-  box-shadow: rgba(255, 255, 255, 0.75) 0px 5px 15px;
 }
 .modalEntrance__close {
   top: 4%;
@@ -577,16 +630,12 @@ body {
 }
 .form__title {
   font-size: 36px;
-  background: linear-gradient(251deg, green 2%, rgba(0, 165, 255, 0.75) 95.49%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
+  text-align: left;
   margin: 25px 0;
 }
 .form__label {
   display: block;
   font-size: 18px;
-  margin-bottom: 5px;
 }
 .form__input {
   background: #F0F4F8;
@@ -605,6 +654,9 @@ body {
 }
 .form__input::placeholder {
   font-size: 18px;
+}
+.form__item_email {
+  position: relative;
 }
 .form .password {
   padding: 0 74px 0 12px;

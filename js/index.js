@@ -6,6 +6,14 @@ import {Slider} from "../modules/Slider.js";
 import {Form} from "../modules/Form.js";
 
 
+document.querySelector(".toggle").addEventListener("click", function(event){
+    // console.log(event.target.querySelector(".form__LogIn").classList.toggle("form__active"))
+    event.target.querySelector(".form__SignUp").classList.toggle("form__active")
+    this.classList.toggle("toggle__active")
+})
+
+
+
 const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
     options = {
         headers: {

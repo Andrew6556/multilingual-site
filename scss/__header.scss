@@ -1,0 +1,197 @@
+.header{
+    height: 105vh;
+    background: #2C2C55;
+    &__top {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background: #222228CC;
+        padding: 12px 0;
+        color: $clWhite;
+    }
+    &__SignUp{
+        color: black;
+        background: #248C46;
+        &:hover{
+            color: $clWhite;
+            background: #2fcd64d1;
+        }
+    }
+    &__logIn{
+        background: #5a5f73d0;
+        &:hover{
+            background: #666a7cfa;
+        }
+    }
+    &__topContent{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        font-size: 22px;
+        line-height: 25px;
+    }
+    &__logoDecor {
+        color: $clPurple;
+        font-weight: 500;
+    }
+    &__title {
+        color: $clWhite;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    &__wrapper {
+        @extend %flex-center;
+    }
+}
+
+
+
+.card{
+    max-width: 450px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 2px 3px rgba(253, 253, 253, 0.334);
+    position: relative;
+    &:hover .card__hover{
+        visibility: visible;
+        opacity: 1;
+    }
+    &__hover{
+        transition: visibility 1s, opacity 1s ease;
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #2c2c558f;
+        border-radius: 15px;
+        &-like{
+            cursor: pointer;
+            animation: like_beat 1.5s ease-out infinite normal running 0s none;
+            transition: all 800ms ease-in-out;
+            &:hover{
+                animation-play-state: paused;
+                stroke: rgba(255, 0, 0, 0.797);
+            }
+        }
+    }
+    &__img{
+        height: 60%;
+        &-item{
+            object-fit:fill;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    }
+    &__title{
+        color: $clPurple;
+        font-size: 28px;
+        padding: 8px 10px;
+    }
+    .card__inner{
+        padding: 10px 20px;
+    }
+    &__text{
+        color: $clWhite;
+        font-size: 20px;
+        padding: 5px 0;
+    }
+    &__decor{
+        color: $clGrey;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    &__num{
+        font-size: 22px;
+    }
+    &__wrapper{
+        @extend %fl-wr-spBetween;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+// выпадающие меню
+.nav {
+    &__profile{
+        position: relative;
+        &:hover .nav__menu{
+            display: block;
+        }
+        &-img{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        &-item {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__menu {
+        position: absolute;
+        display: none;
+        top: 50px;
+        right: 5px;
+        z-index: 100;
+        width: 200px;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    span{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        display: block;
+        color: $clGrey;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    &__userName{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    &__item_fall{
+        position: relative;
+        &:hover .nav__list{
+            display: block;
+        }
+    }
+    &__list{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -198px;
+        width: 100%;
+        background: #242431;
+        border: 1px solid #c9d1d94b;
+        border-radius: 6px;
+    }
+    &__item {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.911);
+        padding: 16px 20px;
+        transition: all 500ms ease-in-out;
+        border-bottom: 1px solid #c9d1d925;
+        &:hover{
+            background: $clPurple;
+            color: $clWhite;
+            cursor: pointer;
+        }
+        &:last-child{
+            border-radius: 0px 0px 6px 6px; 
+        }
+        &:first-child{
+            border-radius: 6px 6px 0px 0px; 
+        }
+    }
+}
+:root {
+    --scrollbarWidth: 12px;
+    --scrollbarBg: grey;
+    --scrollbarThumb: black;
+}
