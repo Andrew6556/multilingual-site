@@ -6,17 +6,19 @@ import {Slider} from "../modules/Slider.js";
 import {Form} from "../modules/Form.js";
 
 
-document.querySelector(".toggle").addEventListener("click", function(event){
+document.querySelector(".toggle__img").addEventListener("click", function(event){
     // console.log(event.target.querySelector(".form__LogIn").classList.toggle("form__active"))
-    // console.log(event.target.querySelector(".form__SignUp"))
+    console.log(event.target)
     console.log(111)
-    event.target.querySelector(".form__SignUp").classList.remove("form__active")
-    this.classList.add("toggle__active")
+    this.style.display = 'none';
+    document.querySelector(".form__SignUp").classList.remove("form__active")
+    document.querySelector(".toggle").classList.add("toggle__active")
 })
 
 document.querySelector(".close").addEventListener("click", function(event){
     // console.log(event.target.closest(".form__SignUp"))
     event.target.closest(".form__SignUp").classList.add("form__active")
+    document.querySelector(".toggle__img").style.display = 'flex';
     event.target.closest(".toggle").classList.remove("toggle__active")
 })
 

@@ -375,13 +375,20 @@
 .toggle{
     cursor: pointer;
     position: absolute;
-    background: url("../img/icon/addition.png") no-repeat center #ed2553;
+    background: #ed2553;
+    // background: url("../img/icon/addition.png") no-repeat center #ed2553;
     top: 0;
     right: -56px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     transition: all ease-in-out 500ms;
+}
+.toggle__img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 .toggle__active{
     cursor: auto;
