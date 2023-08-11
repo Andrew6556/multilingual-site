@@ -602,6 +602,9 @@ body {
   width: 5px;
   background: #ffffff;
 }
+.form__LogIn {
+  transition: all ease-in-out 500ms;
+}
 .form__LogIn .correct__data::after {
   content: "";
   background: url("../img/icon/modal/done.svg") no-repeat center;

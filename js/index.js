@@ -9,6 +9,7 @@ import {Form} from "../modules/Form.js";
 document.querySelector(".toggle__img").addEventListener("click", function(){
     document.querySelector(".form__SignUp").classList.remove("form__active")
     document.querySelector(".toggle").classList.add("toggle__active")
+    document.querySelector(".form__LogIn").style.opacity = "0"
     this.style.display = 'none';
 })
 
@@ -16,6 +17,7 @@ document.querySelector(".close").addEventListener("click", function(event){
     event.target.closest(".form__SignUp").classList.add("form__active")
     event.target.closest(".toggle").classList.remove("toggle__active")
     document.querySelector(".toggle__img").style.display = 'flex';
+    document.querySelector(".form__LogIn").style.opacity = "1"
 })
 
 

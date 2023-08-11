@@ -278,6 +278,7 @@
     }
     // authorization 
     &__LogIn{
+        transition: all ease-in-out 500ms;
         .correct__data{
             &::after{
                 content: "";
