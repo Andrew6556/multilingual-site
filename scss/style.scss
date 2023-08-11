@@ -189,37 +189,12 @@
         color: #ed2553;
         border-radius: 10px;
     }
+    // внести правки!!!
     // &__close{
     //     top: 4%;
     //     right: 5%;
     //     color: $clWhite;
     //     font-weight: 600;
-    // }
-
-    // &__group{
-    //     display: flex;
-    //     justify-content: space-between;
-    //     &_choice{
-    //         width: 50%;
-    //         font-size:  22px;
-    //         padding: 15px 0;
-    //         cursor: pointer;
-    //         color: black;
-    //         transition: all 500ms ease-in-out;
-    //         box-shadow: #1992d497 0px 30px 60px -12px inset, #0f5276d6 0px 18px 36px -28px inset;
-    //         &:hover{
-    //             color:$clWhite;
-    //             background:#1266977b;
-    //         }
-    //     }
-    //     &_active{
-    //         color:$clWhite;
-    //         background: #127FBF;
-    //         &:hover{
-    //             background: #1992d4c0;
-    //         }
-    //     }
-        
     // }
 }
 // form
@@ -245,7 +220,7 @@
     // Register
     &__SignUp{
         padding: 30px;
-        transition: all ease-in 0.3s 600ms;
+        transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s 200ms;
     }
     &__SignUp-title{
         color: $clWhite;
@@ -400,7 +375,7 @@
     border-radius: 12px;
 }
 .form__active{
-    transition: 0.3s ease;
+    transition: none;
     opacity: 0;
     visibility: hidden;
 }

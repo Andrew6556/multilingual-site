@@ -6,20 +6,16 @@ import {Slider} from "../modules/Slider.js";
 import {Form} from "../modules/Form.js";
 
 
-document.querySelector(".toggle__img").addEventListener("click", function(event){
-    // console.log(event.target.querySelector(".form__LogIn").classList.toggle("form__active"))
-    console.log(event.target)
-    console.log(111)
-    this.style.display = 'none';
+document.querySelector(".toggle__img").addEventListener("click", function(){
     document.querySelector(".form__SignUp").classList.remove("form__active")
     document.querySelector(".toggle").classList.add("toggle__active")
+    this.style.display = 'none';
 })
 
 document.querySelector(".close").addEventListener("click", function(event){
-    // console.log(event.target.closest(".form__SignUp"))
     event.target.closest(".form__SignUp").classList.add("form__active")
-    document.querySelector(".toggle__img").style.display = 'flex';
     event.target.closest(".toggle").classList.remove("toggle__active")
+    document.querySelector(".toggle__img").style.display = 'flex';
 })
 
 
@@ -31,21 +27,7 @@ const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
         }
 }
 
-document.querySelectorAll(".modalEntrance__group_choice").forEach(button => {
-    button.addEventListener("click", function (event){
-        if(!button.classList.contains("modalEntrance__group_active")){
-            event.target.parentElement.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
-            event.target.classList.add("modalEntrance__group_active")
-            if (event.target.classList.contains("modalEntrance__logIn")){
-                document.querySelector('.form__SignUp').classList.add("form__active")
-                document.querySelector('.form__LogIn').classList.remove("form__active")
-            }else{
-                document.querySelector('.form__SignUp').classList.remove("form__active")
-                document.querySelector('.form__LogIn').classList.add("form__active")
-            }
-        }
-    })
-})
+
 
 let users_rg = []
 document.querySelectorAll(".form").forEach(item =>{
@@ -89,7 +71,6 @@ document.querySelectorAll(".form").forEach(item =>{
 
                 document.querySelector(".slider").remove()
                 slider.then(data => data(false, true))
-
             }else{
                 document.querySelector(".modalEntrance__btn-LogIn").classList.add("error__data")
             }
@@ -132,25 +113,25 @@ document.querySelector(".modalNotification__btn").addEventListener("click",(even
     event.target.closest(".modal").classList.toggle("active")
 })
 
-
-document.querySelectorAll(".header__group_choice").forEach(button => {
-    button.addEventListener("click", function (){
-        // открываем модалку
-        document.querySelector(".modalEntrance").classList.toggle("active")
-        if(button.classList.contains("header__SignUp")){
-            // при клике на кнопку регистрации даем ей цвет активной кнопк в форме
-            document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
+// изменить под текущие изменения
+// document.querySelectorAll(".header__group_choice").forEach(button => {
+//     button.addEventListener("click", function (){
+//         // открываем модалку
+//         document.querySelector(".modalEntrance").classList.toggle("active")
+//         if(button.classList.contains("header__SignUp")){
+//             // при клике на кнопку регистрации даем ей цвет активной кнопк в форме
+//             document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
             
-            document.querySelector('.form__SignUp').classList.remove("form__active")
-            document.querySelector('.form__LogIn').classList.add("form__active")
-        }else{
-            document.querySelector(".modalEntrance__logIn").classList.add("modalEntrance__group_active")
+//             document.querySelector('.form__SignUp').classList.remove("form__active")
+//             document.querySelector('.form__LogIn').classList.add("form__active")
+//         }else{
+//             document.querySelector(".modalEntrance__logIn").classList.add("modalEntrance__group_active")
 
-            document.querySelector('.form__SignUp').classList.add("form__active")
-            document.querySelector('.form__LogIn').classList.remove("form__active")
-        }
-    })
-})
+//             document.querySelector('.form__SignUp').classList.add("form__active")
+//             document.querySelector('.form__LogIn').classList.remove("form__active")
+//         }
+//     })
+// })
 
 async function create_slider(){
     // Получаем 20 фильмов из кинопоиска

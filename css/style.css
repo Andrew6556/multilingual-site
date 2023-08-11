@@ -561,7 +561,7 @@ body {
 
 .form__SignUp {
   padding: 30px;
-  transition: all ease-in 0.3s 600ms;
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s 200ms;
 }
 .form__SignUp-title {
   color: white;
@@ -710,7 +710,7 @@ body {
 }
 
 .form__active {
-  transition: 0.3s ease;
+  transition: none;
   opacity: 0;
   visibility: hidden;
 }
