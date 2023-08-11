@@ -97,7 +97,7 @@ body {
   justify-content: center;
 }
 
-.form .label__confirmPassword, .form .label__login, .form .label__email, .form .label__password {
+.form .label__confirmPassword, .form .label__login, .form .label__password, .form .label__email {
   display: none;
   z-index: 1000;
   position: absolute;
@@ -111,7 +111,7 @@ body {
   border-radius: 15px;
   padding: 10px;
 }
-.form .label__confirmPassword::before, .form .label__login::before, .form .label__email::before, .form .label__password::before {
+.form .label__confirmPassword::before, .form .label__login::before, .form .label__password::before, .form .label__email::before {
   content: "";
   background: url("../img/icon/searchBox/left-arrow.png") left no-repeat;
   -o-object-fit: cover;
@@ -590,7 +590,7 @@ body {
 }
 .form__SignUp-input:focus {
   transition: all ease-in-out 500ms;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 .form__LogIn-title {
   display: inline-flex;
@@ -609,14 +609,8 @@ body {
 .form .form__LogIn-input {
   border-bottom: 1px solid black;
 }
-.form .form__LogIn-input::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.6);
-}
-.form .form__LogIn-input::placeholder {
-  color: rgba(0, 0, 0, 0.6);
-}
 .form .form__LogIn-input:focus {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid red;
 }
 .form__item {
   margin-bottom: 35px;
@@ -651,9 +645,6 @@ body {
   padding: 0 74px 0 12px;
 }
 .form__item_password {
-  position: relative;
-}
-.form .form__item_email {
   position: relative;
 }
 .form .form__item_login {

@@ -152,6 +152,14 @@
 // Modal Account Login
 .modalEntrance{
     // General settings
+
+    // внести правки!!!
+    // &__close{
+    //     top: 4%;
+    //     right: 5%;
+    //     color: $clWhite;
+    //     font-weight: 600;
+    // }
     &__content{
         width: 450px;
         background: $clWhite;
@@ -159,7 +167,6 @@
         position: relative;
         padding: 30px;
     }
-    
     &__btn {
         display: block;
         text-transform: uppercase;
@@ -189,13 +196,6 @@
         color: #ed2553;
         border-radius: 10px;
     }
-    // внести правки!!!
-    // &__close{
-    //     top: 4%;
-    //     right: 5%;
-    //     color: $clWhite;
-    //     font-weight: 600;
-    // }
 }
 // form
 .error__data{
@@ -246,7 +246,7 @@
         }
         &:focus{
             transition: all ease-in-out 500ms;
-            border-bottom: 2px solid $clWhite;
+            border-bottom: 1px solid $clWhite;
         }
     }
     // authorization 
@@ -267,11 +267,8 @@
     // input stroke
     .form__LogIn-input{
         border-bottom: 1px solid black;
-        &::placeholder{
-            color:rgba(0, 0, 0, 0.6);
-        }
         &:focus{
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid red;
         }
     }
     // General settings
@@ -301,6 +298,9 @@
     &__item_email{
         position: relative;
     }
+    .label__email{
+        @extend %formError;
+    }
     .password{
         padding: 0 74px 0 12px;
     }
@@ -308,12 +308,6 @@
         position: relative;
     }
     .label__password{
-        @extend %formError;
-    }
-    .form__item_email{
-        position: relative;
-    }
-    .label__email{
         @extend %formError;
     }
     .form__item_login{
@@ -351,7 +345,6 @@
     cursor: pointer;
     position: absolute;
     background: #ed2553;
-    // background: url("../img/icon/addition.png") no-repeat center #ed2553;
     top: 0;
     right: -56px;
     width: 100px;
