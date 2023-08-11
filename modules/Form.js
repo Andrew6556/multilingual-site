@@ -12,7 +12,7 @@ export class Form{
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
-            event_list.map(event => this.input_password.addEventListener(event,(event)=>{
+            event_list.map(event => this.input_password.addEventListener(event,(event) =>{
                 this.fullness_check_password(event)
                 this.password_confirmation_check()
             }))
@@ -62,27 +62,30 @@ export class Form{
             label_password.innerText = "Превышение кол-ва символа вводе";
         }else if(input_value.length - 1 < 8){
             label_password.innerText = "Логин должен состоять минимум из 8 символов";
-            event.target.classList.remove("correct__data")
+            event.target.parentElement.classList.remove("correct__data")
         }else{
             label_password.style.display = "none";
-            event.target.classList.add("correct__data")
+            event.target.parentElement.classList.add("correct__data")
         }
         this.activate_button()
     }
-    check_email = (event) =>{
+    check_email = (event) => {
+        // Regular expression for mail validation
         const EMAIL_REGEXP = new RegExp(
             /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i
         )
         if (EMAIL_REGEXP.test(event.target.value)) {
+            // If the mail is entered correctly, we remove error notifications
             event.target.parentElement.querySelector(".label__email").style.display = "none";
-            event.target.classList.add("correct__data")
+            event.target.parentElement.classList.add("correct__data")
         } else {
+            // If you enter an incorrect email, we display error notifications
             event.target.parentElement.querySelector(".label__email").style.display = "flex";
-            event.target.classList.remove("correct__data")
+            event.target.parentElement.classList.remove("correct__data")
         }
         this.activate_button()
     }
-    password_confirmation_check = () =>{
+    password_confirmation_check = () => {
         let match_check    = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 ?
                                                 this.input_confirm.value == this.input_password.value: false;
 
@@ -97,6 +100,7 @@ export class Form{
         }else{
             label_password.style.display = "flex";
             this.input_confirm.classList.remove("correct__data")
+            // event.target.closest(".form__password").querySelector(".form__passwordImg").style.display = "flex"
         }
         this.activate_button()
     }
@@ -107,10 +111,12 @@ export class Form{
             label_password.innerText = "Необходимо указать пароль";
         }else if(event.target.value.length < 8){
             label_password.innerText = "Пароль должен содержать не менее 8 символов";
-            event.target.classList.remove("correct__data")
+            event.target.closest(".form__item_password").classList.remove("correct__data")
+            event.target.closest(".form__password").querySelector(".form__passwordImg").style.display = "flex"
         }else{
             label_password.style.display = "none";
-            event.target.classList.add("correct__data")
+            event.target.closest(".form__password").querySelector(".form__passwordImg").style.display = "none"
+            event.target.closest(".form__item_password").classList.add("correct__data")
         }
         this.activate_button()
     }

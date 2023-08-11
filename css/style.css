@@ -563,6 +563,29 @@ body {
   padding: 30px;
   transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s 200ms;
 }
+.form__SignUp .form__item {
+  position: relative;
+}
+.form__SignUp .form__item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: white;
+}
+.form__SignUp-input::-moz-placeholder {
+  color: rgba(253, 253, 253, 0.712);
+}
+.form__SignUp-input::placeholder {
+  color: rgba(253, 253, 253, 0.712);
+}
+.form__SignUp .correct__data::after {
+  content: "";
+  background-color: rgba(253, 253, 253, 0.712);
+  -webkit-mask-image: url("/img/icon/modal/done.svg");
+  mask-image: url("/img/icon/modal/done.svg");
+}
 .form__SignUp-title {
   color: white;
   display: flex;
@@ -579,18 +602,20 @@ body {
   width: 5px;
   background: #ffffff;
 }
-.form__SignUp-input {
-  border-bottom: 1px solid white;
+.form__LogIn .correct__data::after {
+  content: "";
+  background: url("../img/icon/modal/done.svg") no-repeat center;
 }
-.form__SignUp-input::-moz-placeholder {
-  color: rgba(253, 253, 253, 0.712);
+.form__LogIn .form__item {
+  position: relative;
 }
-.form__SignUp-input::placeholder {
-  color: rgba(253, 253, 253, 0.712);
-}
-.form__SignUp-input:focus {
-  transition: all ease-in-out 500ms;
-  border-bottom: 1px solid white;
+.form__LogIn .form__item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: black;
 }
 .form__LogIn-title {
   display: inline-flex;
@@ -606,12 +631,6 @@ body {
   width: 5px;
   background: #362B56;
 }
-.form .form__LogIn-input {
-  border-bottom: 1px solid black;
-}
-.form .form__LogIn-input:focus {
-  border-bottom: 2px solid red;
-}
 .form__item {
   margin-bottom: 35px;
 }
@@ -626,11 +645,10 @@ body {
 }
 .form__input {
   background: transparent;
-  height: 50px;
+  height: 53px;
   width: 100%;
   padding: 0 12px;
-  font-size: 18px;
-  transition: all 500ms ease-in-out;
+  font-size: 20px;
 }
 .form__input::-moz-placeholder {
   font-size: 18px;
@@ -647,7 +665,7 @@ body {
 .form__item_password {
   position: relative;
 }
-.form .form__item_login {
+.form__item_login {
   position: relative;
 }
 .form__password {
@@ -711,10 +729,27 @@ body {
 }
 
 .correct__data {
-  border: 2px solid green;
-  box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+  position: relative;
+  animation: smoothVisibility 500ms linear both;
+  opacity: 0;
+}
+.correct__data::after {
+  content: "";
+  position: absolute;
+  padding: 15px;
+  background-size: auto;
+  top: 10px;
+  right: 13px;
 }
 
+@keyframes smoothVisibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .slider__navigation {
   display: flex;
   justify-content: center;
