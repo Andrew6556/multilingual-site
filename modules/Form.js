@@ -91,16 +91,17 @@ export class Form{
 
         let label_password = this.form_Wrapper.querySelector(".label__confirmPassword");
         if (match_check){
-            label_password.style.display = "none";
-            this.input_confirm.classList.add("correct__data")
+            label_password.style.display                                                                    = "none";
+            this.input_confirm.closest(".form__password").querySelector(".form__passwordImg").style.display = "none"
+            this.input_confirm.closest(".form__item_confirmPassword").classList.add("correct__data")
         }else if(!this.input_confirm.value.length){
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
         }else if(this.input_confirm.value == this.input_password.value){
             this.form_Wrapper.querySelector(".label__confirmPassword").style.display = "none";
         }else{
             label_password.style.display = "flex";
-            this.input_confirm.classList.remove("correct__data")
-            // event.target.closest(".form__password").querySelector(".form__passwordImg").style.display = "flex"
+            this.input_confirm.closest(".form__password").querySelector(".form__passwordImg").style.display = "flex"
+            this.input_confirm.closest(".form__item_confirmPassword").classList.remove("correct__data")
         }
         this.activate_button()
     }
