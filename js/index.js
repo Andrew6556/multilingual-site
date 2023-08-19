@@ -38,7 +38,6 @@ document.querySelectorAll(".form").forEach(item =>{
     form.form_Wrapper.addEventListener("submit", (link) =>{
         link.preventDefault();
         let form_data = form.get_data();
-        
         let form_email    = form_data[0],
             form_login    = form_data[1],
             form_password = form_data[2];
@@ -60,11 +59,11 @@ document.querySelectorAll(".form").forEach(item =>{
             if (check_data){
                 link.target.reset()
                 form.return_original()
-                // удаляем меню для входа в систему
+                // remove the login menu
                 document.querySelector(".nav").classList.toggle("hidden__active")
-                // добавляем профиль пользователя со всеми возможностями
+                // add a user profile with all the features
                 document.querySelector(".header__sistem").classList.toggle("hidden__active")
-                // очищаем форму от возможных ошибок при попытки войти
+                // we clear the form from possible errors when trying to enter
                 document.querySelector(".modalEntrance__btn-LogIn").classList.remove("error__data")
 
 

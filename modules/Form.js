@@ -9,6 +9,7 @@ export class Form{
         let event_list = ['keyup','keydown'];
 
         this.show_password();
+
         event_list.map(event => this.form_Wrapper.querySelector(".input__login").addEventListener(event, this.login_verification))
         event_list.map(event => this.form_Wrapper.querySelector(".input__email").addEventListener(event, this.check_email))
         if (this.input_confirm){
@@ -22,13 +23,14 @@ export class Form{
         }
     }
     show_password(){
+        // when clicked, an unencrypted password appears
         this.form_Wrapper.querySelectorAll(".form__passwordImg").forEach(password_img=>{
             password_img.addEventListener("click", (event) =>{
                 if(event.target.closest(".form__password").querySelector(".password").type == "text"){
-                    event.target.closest(".form__password").querySelector(".password").type = "password";
+                    event.target.closest(".form__password").querySelector(".password").type              = "password";
                     event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/hide.png"
                 }else{
-                    event.target.closest(".form__password").querySelector(".password").type = "text";
+                    event.target.closest(".form__password").querySelector(".password").type              = "text";
                     event.target.closest(".form__password").querySelector(".form__passwordImg-item").src = "./img/icon/modal/eye.png"
                 }
             })
@@ -37,11 +39,12 @@ export class Form{
     activate_button(){
         let inputs   = Array.from(this.form_Wrapper.querySelectorAll(".form__input")),
             form_btn = this.form_Wrapper.querySelector(".modalEntrance__btn");
-
+        // Find out which inputs have been validated
         let confirmed_inputs = inputs.filter(input => {
-            return input.classList.contains("correct__data")
+            return input.closest(".form__item").classList.contains("correct__data")
         })
         if(confirmed_inputs.length == inputs.length){
+            // The form fields are filled in correctly - activate the button to submit it
             form_btn.disabled = false;
             form_btn.style.cursor = "pointer";
         }else{
@@ -86,8 +89,8 @@ export class Form{
         this.activate_button()
     }
     password_confirmation_check = () => {
-        let match_check    = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 ?
-                                                this.input_confirm.value == this.input_password.value: false;
+        let match_check    = this.input_password.value.length >= 8 && this.input_confirm.value.length >= 8 
+                                            && this.input_confirm.value == this.input_password.value;
 
         let label_password = this.form_Wrapper.querySelector(".label__confirmPassword");
         if (match_check){
@@ -122,14 +125,12 @@ export class Form{
         this.activate_button()
     }
     get_data(){
-        let input_value = Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => {
-            return elem.value
-        });
-        return input_value
+        // get all value from inputs
+        return Array.from(this.form_Wrapper.querySelectorAll(".form__input")).map(elem => elem.value);
     }
     return_original(){
         this.form_Wrapper.querySelectorAll(".form__input").forEach(input =>{
-            input.classList.remove("correct__data")
+            input.closest(".form__item").classList.remove("correct__data")
         })
     }
 }
