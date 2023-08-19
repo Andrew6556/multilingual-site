@@ -9,6 +9,10 @@ export class Header{
                 <div class="header__top">
                     <div class="header__topContent container">
                         <div class="header__logo">Ваш любимый <br><span class="header__logoDecor">Кинотеатр</span></div>
+                        <select class="header__change-language">
+                            <option value="ru">Ru</option>
+                            <option value="pl">Pl</option>
+                        </select>
                         <div class="header__sistem">
                             <div class="header__group modalEntrance__group">
                                 <button class="header__SignUp btn header__group_choice title">Sign Up</button>

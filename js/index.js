@@ -37,10 +37,7 @@ document.querySelectorAll(".form").forEach(item =>{
     
     form.form_Wrapper.addEventListener("submit", (link) =>{
         link.preventDefault();
-        let form_data = form.get_data();
-        let form_email    = form_data[0],
-            form_login    = form_data[1],
-            form_password = form_data[2];
+        let [form_email,form_login,form_password] = [...form.get_data()];
 
         if (form.form_Wrapper.classList.contains("form__SignUp")){
             users_rg.push({
@@ -55,7 +52,7 @@ document.querySelectorAll(".form").forEach(item =>{
             // you have successfully logged in
         }else{
             let check_data = users_rg[0].email === form_email && users_rg[0].login === form_login
-                                        && +users_rg[0].password === +form_password ? true:false;
+                                        && +users_rg[0].password === +form_password;
             if (check_data){
                 link.target.reset()
                 form.return_original()
@@ -69,7 +66,6 @@ document.querySelectorAll(".form").forEach(item =>{
 
                 document.querySelector(".modalNotification").classList.toggle("active")
                 document.querySelector(".modalNotification__text").innerText = "you have successfully logged in";
-
                 document.querySelector(".slider").remove()
                 slider.then(data => data(false, true))
             }else{
@@ -135,21 +131,20 @@ document.querySelector(".modalNotification__btn").addEventListener("click",(even
 // })
 
 async function create_slider(){
-    // Получаем 20 фильмов из кинопоиска
-    let initial_films;
+    // We get 20 movies from the movie search
     try{
-        let response_films = await fetch(path_films, options);
+        let response_films = await fetch(path_films, options),
             initial_films  = await response_films.json();
-        
-        // Используем замыкание!Чтоб не делать один и тот же запрос
+        // We use a closure! To avoid making the same request
         return function(sorted=false, active_click){
-            // получаем divs на основе полученной информации о фильмах
+            //get divs based on received movie information
             let div_cards = initial_films.films.map(film  => new Card(film,active_click).wrapper);
-            //Если надо сортируем фильмы: 1.По убыванию 2.По возрастанию
+            //If necessary, sort the films: 1. Descending 2. Ascending
             sorted ? div_cards:div_cards.sort((card_one, card_two) => {
                 return (+card_one.querySelector(".card__viewer-rating").innerText -
                     +card_two.querySelector(".card__viewer-rating").innerText)
                 })
+            // add slider to DOM
             document.querySelector(".header__wrapper").appendChild(new Slider(div_cards).wrapper)
         }
     }catch(error){
