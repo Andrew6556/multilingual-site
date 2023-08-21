@@ -6,6 +6,7 @@ import {Slider} from "../modules/Slider.js";
 import {Form} from "../modules/Form.js";
 
 
+
 document.querySelector(".toggle__img").addEventListener("click", function(){
     document.querySelector(".form__SignUp").classList.remove("form__active")
     document.querySelector(".toggle").classList.add("toggle__active")
@@ -80,6 +81,54 @@ document.querySelectorAll(".form").forEach(item =>{
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
+
+// console.log(location)
+// console.log(window)
+
+const available_languages  = ["en", "pl"],
+    default_languages      = "en",
+    default_class          = "lang",
+    path_to_languages_dir  = "./js/languages";
+
+
+let select_change_lang = document.querySelector(".header__change-language");
+
+select_change_lang.addEventListener("change", function(){
+    location.href = `${window.location.pathname}#${this.value}`;
+    location.reload()
+})
+
+
+async function get_data_json(lang){
+    return await(await fetch(`${path_to_languages_dir}/${lang}.json`)).json()
+}
+
+function change_language(){
+    let hash = window.location.hash.substr(1);
+    if(!available_languages.includes(hash)){
+        location.href = `${window.location.pathname}#${default_languages}`
+        location.reload()
+
+        return true;
+    }
+    select_change_lang.value = hash;
+    get_data_json(hash).then(data =>{
+        Object.keys(data).forEach(key =>{
+            document.querySelector(`.${default_class}-${key}`).innerText = data[key];
+        })
+    })
+}
+change_language()
+
+
+
+
+
+
+
+
+
+
 let slider = create_slider();
 slider.then(data => data())
 
@@ -133,8 +182,7 @@ document.querySelector(".modalNotification__btn").addEventListener("click",(even
 async function create_slider(){
     // We get 20 movies from the movie search
     try{
-        let response_films = await fetch(path_films, options),
-            initial_films  = await response_films.json();
+        let initial_films = await(await fetch(path_films, options)).json();
         // We use a closure! To avoid making the same request
         return function(sorted=false, active_click){
             //get divs based on received movie information
