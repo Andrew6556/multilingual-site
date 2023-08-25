@@ -113,8 +113,13 @@ function change_language(){
     }
     select_change_lang.value = hash;
     get_data_json(hash).then(data =>{
-        Object.keys(data).forEach(key =>{
-            document.querySelector(`.${default_class}-${key}`).innerText = data[key];
+        // console.log(data.header)
+        console.log(data.header)
+        data.header.forEach(item => {
+            Object.entries(item).forEach(([key, value]) => {
+                console.log(`${key} --- ${value}`)
+                document.querySelector(`.${default_class}-${key}`).innerText = value;
+            });
         })
     })
 }

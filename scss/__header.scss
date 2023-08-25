@@ -37,10 +37,13 @@
     &__title {
         color: $clWhite;
         font-size: 36px;
+        max-width:400px;
         margin-bottom: 10px;
     }
-    &__wrapper {
-        @extend %flex-center;
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 

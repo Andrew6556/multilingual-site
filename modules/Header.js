@@ -8,15 +8,15 @@ export class Header{
         this.wrapper.innerHTML = `
                 <div class="header__top">
                     <div class="header__topContent container">
-                        <div class="header__logo lang-title">Ваш любимый Кинотеатр</div>
+                        <div class="header__logo lang-logo">Your favorite cinema</div>
                         <select class="header__change-language">
                             <option value="en">En</option>
                             <option value="pl">Pl</option>
                         </select>
                         <div class="header__sistem">
                             <div class="header__group modalEntrance__group">
-                                <button class="header__SignUp btn header__group_choice title">Sign Up</button>
-                                <button class="header__logIn  btn header__group_choice title">Log In</button>
+                                <button class="header__SignUp btn header__group_choice title lang-SignUp">Sign Up</button>
+                                <button class="header__logIn  btn header__group_choice title lang-logIn">Log In</button>
                             </div>
                         </div>
                         
@@ -27,25 +27,25 @@ export class Header{
                                 </div>
                                 <ul class="nav__menu">
                                     <li class="nav__item">
-                                        <span>Signed in as</span>
+                                        <span class="lang-sistem">Signed in as</span>
                                         <p class="nav__userName">Andre9qsq2</p>
                                     </li>
                                     <li class="nav__item nav__item_fall">
-                                        <p>Sort movies</p>
+                                        <p class="lang-sort">Sort movies</p>
                                         <ul class="nav__list">
-                                            <li class="nav__item nav__sorted nav__item_best">First best movies</li>
-                                            <li class="nav__item nav__sorted nav__item_worst">First worst movies</li>
+                                            <li class="nav__item nav__sorted nav__item_best lang-best__movies">First best movies</li>
+                                            <li class="nav__item nav__sorted nav__item_worst lang-worst__movies">First worst movies</li>
                                         </ul>
                                     </li>
-                                    <li class="nav__item nav__item_favorites">View favorites</li>
-                                    <li class="nav__item nav__item_out">Sign out</li>
+                                    <li class="nav__item nav__item_favorites lang-favorites">View favorites</li>
+                                    <li class="nav__item nav__item_out lang-out">Sign out</li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                 </div>
                 <div class="header__content container">
-                    <div class="header__title title">Смотрите фильмы <br> на вашей любимой платформе</div>
+                    <div class="header__title title lang-sabtitle">Watch movies on your favorite platform</div>
                     <div class="header__wrapper">
                         
                     </div>

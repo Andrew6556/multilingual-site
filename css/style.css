@@ -91,12 +91,6 @@ body {
   justify-content: space-between;
 }
 
-.header__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .form .label__confirmPassword, .form .label__login, .form .label__password, .form .label__email {
   display: none;
   z-index: 1000;
@@ -211,8 +205,15 @@ body {
 .header__title {
   color: white;
   font-size: 36px;
+  max-width: 400px;
   margin-bottom: 10px;
 }
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   max-width: 450px;
   height: 500px;
