@@ -8,7 +8,7 @@ export class Header{
         this.wrapper.innerHTML = `
                 <div class="header__top">
                     <div class="header__topContent container">
-                        <div class="header__logo lang-logo">Your favorite cinema</div>
+                        <div class="header__logo lang-title">Your favorite cinema</div>
                         <select class="header__change-language">
                             <option value="en">En</option>
                             <option value="pl">Pl</option>

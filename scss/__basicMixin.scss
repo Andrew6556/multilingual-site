@@ -82,7 +82,7 @@ $clGrey:rgba(253, 253, 253, 0.712);
     font-size: 18px;
     color: #ffffff;
     padding: 12px;
-    width: 100px;
+    min-width: 100px;
     border-radius:10px;
     transition:all 800ms ease-in-out 0s;
 }

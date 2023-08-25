@@ -1,16 +1,14 @@
 {
-    "header":[
-        {"title":"Your favorite cinema"},
-        {"SignUp":"Sign Up"},
-        {"logIn":"Log In"},
-        {"sabtitle":"Watch movies on your favorite platform"},
-        {"sistem":"Signed in as"},
-        {"sort":"Sort movies"},
-        {"best__movies":"First best movies"},
-        {"worst__movies":"First worst movies"},
-        {"favorites":"View favorites"},
-        {"out":"Sign out"}
-    ]
+    "title":"Your favorite cinema",
+    "SignUp":"Sign Up",
+    "logIn":"Log In",
+    "sabtitle":"Watch movies on your favorite platform",
+    "sistem":"Signed in as",
+    "sort":"Sort movies",
+    "best__movies":"First best movies",
+    "worst__movies":"First worst movies",
+    "favorites":"View favorites",
+    "out":"Sign out"
 }
     
     

@@ -1,6 +1,12 @@
 {
-    "header":{
-        "title":"Watch movies on your favorite platform"
-    }
-    
+    "title":"Twoje ulubione kino",
+    "SignUp":"Zapisać się",
+    "logIn":"Zaloguj sie",
+    "sabtitle":"Oglądaj filmy na swojej ulubionej platformie",
+    "sistem":"Zalogowany jako",
+    "sort":"Sortuj filmy",
+    "best__movies":"Pierwsze najlepsze filmy",
+    "worst__movies":"Pierwsze najgorsze filmy",
+    "favorites":"Zobacz ulubione",
+    "out":"Wyloguj się"
 }

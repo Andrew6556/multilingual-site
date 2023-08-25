@@ -113,25 +113,12 @@ function change_language(){
     }
     select_change_lang.value = hash;
     get_data_json(hash).then(data =>{
-        // console.log(data.header)
-        console.log(data.header)
-        data.header.forEach(item => {
-            Object.entries(item).forEach(([key, value]) => {
-                console.log(`${key} --- ${value}`)
-                document.querySelector(`.${default_class}-${key}`).innerText = value;
-            });
-        })
+        Object.entries(data).forEach(([key, value]) => {
+            document.querySelector(`.${default_class}-${key}`).innerText = value;
+        });
     })
 }
 change_language()
-
-
-
-
-
-
-
-
 
 
 let slider = create_slider();
