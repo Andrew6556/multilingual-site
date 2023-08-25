@@ -7,19 +7,9 @@ import {Form} from "../modules/Form.js";
 
 
 
-document.querySelector(".toggle__img").addEventListener("click", function(){
-    document.querySelector(".form__SignUp").classList.remove("form__active")
-    document.querySelector(".toggle").classList.add("toggle__active")
-    document.querySelector(".form__LogIn").style.opacity = "0"
-    this.style.display = 'none';
-})
-
-document.querySelector(".close").addEventListener("click", function(event){
-    event.target.closest(".form__SignUp").classList.add("form__active")
-    event.target.closest(".toggle").classList.remove("toggle__active")
-    document.querySelector(".toggle__img").style.display = 'flex';
-    document.querySelector(".form__LogIn").style.opacity = "1"
-})
+const toggle = document.querySelector(".toggle"),
+    sign_up  = document.querySelector(".form__SignUp"),
+    log_in   = document.querySelector(".form__LogIn");
 
 
 const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
@@ -29,6 +19,28 @@ const path_films = `http://kinopoiskapiunofficial.tech/api/v2.2/films/top`,
             'Content-Type': 'application/json; charset=UTF-8',
         }
 }
+
+document.querySelector(".toggle__img").addEventListener("click", function(){
+    // when clicked, the authorization form becomes visible
+    sign_up.classList.remove("form__active")
+    toggle.classList.add("toggle__active")
+
+    log_in.style.opacity = "0";
+    // hide the picture
+    this.classList.add("hidden__active");
+})
+
+document.querySelector(".close").addEventListener("click", function(event){
+    // when clicked, the authorization form becomes hidden
+    event.target.closest(".form__SignUp").classList.add("form__active")
+    event.target.closest(".toggle").classList.remove("toggle__active")
+
+    // visible the picture
+    document.querySelector(".toggle__img").classList.remove("hidden__active");
+    log_in.style.opacity = "1"
+})
+
+
 
 
 
@@ -41,6 +53,7 @@ document.querySelectorAll(".form").forEach(item =>{
         let [form_email,form_login,form_password] = [...form.get_data()];
 
         if (form.form_Wrapper.classList.contains("form__SignUp")){
+            // add database with registered users
             users_rg.push({
                 email:form_email,
                 login:form_login,
@@ -136,6 +149,7 @@ document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
     document.querySelector(".modalFavorites").classList.toggle("active")
 })
 
+// ыфыфыфыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
 document.querySelectorAll(".modal__close").forEach(close => {
     // обработка закрытия модал
     let modals = Array.from(document.querySelectorAll(".modal"));
@@ -147,29 +161,24 @@ document.querySelectorAll(".modal__close").forEach(close => {
         }
     })
 })
+
+
 document.querySelector(".modalNotification__btn").addEventListener("click",(event)=>{
     event.target.closest(".modal").classList.toggle("active")
 })
 
-// изменить под текущие изменения
-// document.querySelectorAll(".header__group_choice").forEach(button => {
-//     button.addEventListener("click", function (){
-//         // открываем модалку
-//         document.querySelector(".modalEntrance").classList.toggle("active")
-//         if(button.classList.contains("header__SignUp")){
-//             // при клике на кнопку регистрации даем ей цвет активной кнопк в форме
-//             document.querySelector(".modalEntrance__SignUp").classList.add("modalEntrance__group_active")
-            
-//             document.querySelector('.form__SignUp').classList.remove("form__active")
-//             document.querySelector('.form__LogIn').classList.add("form__active")
-//         }else{
-//             document.querySelector(".modalEntrance__logIn").classList.add("modalEntrance__group_active")
+document.querySelectorAll(".header__group_choice").forEach(button => {
+    button.addEventListener("click", function (){
+        // open a modal with a form
+        document.querySelector(".modalEntrance").classList.toggle("active")
+        if(button.classList.contains("header__SignUp")){
+            sign_up.classList.remove("form__active")
+            toggle.classList.add("toggle__active")
 
-//             document.querySelector('.form__SignUp').classList.add("form__active")
-//             document.querySelector('.form__LogIn').classList.remove("form__active")
-//         }
-//     })
-// })
+            document.querySelector(".toggle__img").classList.add("hidden__active")
+        }
+    })
+})
 
 async function create_slider(){
     // We get 20 movies from the movie search
