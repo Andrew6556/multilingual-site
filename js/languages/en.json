@@ -8,7 +8,11 @@
     "best__movies":"First best movies",
     "worst__movies":"First worst movies",
     "favorites":"View favorites",
-    "out":"Sign out"
+    "out":"Sign out",
+    "selected__films":"Sign out",
+    "success":"Success",
+    "form__LogIn":"Welcome Back!",
+    "form__SignUp":"Sign Up"
 }
     
     

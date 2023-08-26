@@ -8,5 +8,9 @@
     "best__movies":"Pierwsze najlepsze filmy",
     "worst__movies":"Pierwsze najgorsze filmy",
     "favorites":"Zobacz ulubione",
-    "out":"Wyloguj się"
+    "out":"Wyloguj się",
+    "selected__films":"Twoje polecane filmy",
+    "success":"Powodzenie",
+    "form__LogIn":"Witamy spowrotem!",
+    "form__SignUp":"Zapisać się"
 }
