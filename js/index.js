@@ -150,18 +150,27 @@ document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
 })
 
 // ыфыфыфыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
-document.querySelectorAll(".modal__close").forEach(close => {
-    // обработка закрытия модал
-    let modals = Array.from(document.querySelectorAll(".modal"));
-    close.addEventListener("click", function(){
-        let current_modal = modals.filter(modal => !modal.classList.contains("active"))[0];
-        current_modal.classList.toggle("active")
-        if (current_modal.classList.contains("modalEntrance")){
-            document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
-        }
+// document.querySelectorAll(".modal__close").forEach(close => {
+//     // обработка закрытия модал
+//     let modals = Array.from(document.querySelectorAll(".modal"));
+//     close.addEventListener("click", function(){
+//         let current_modal = modals.filter(modal => !modal.classList.contains("active"))[0];
+//         current_modal.classList.toggle("active")
+//         if (current_modal.classList.contains("modalEntrance")){
+//             document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
+//         }
+//     })
+// })
+document.querySelectorAll(".modal").forEach(modal =>{
+    // Closing background modal
+    modal.addEventListener("click", function(){
+        this.classList.add("active")
+        this.querySelector(".modal__body").addEventListener("click", function(event){
+            // stop immersing the event
+            event.stopImmediatePropagation()
+        })
     })
 })
-
 
 document.querySelector(".modalNotification__btn").addEventListener("click",(event)=>{
     event.target.closest(".modal").classList.toggle("active")
