@@ -94,10 +94,6 @@ document.querySelectorAll(".form").forEach(item =>{
 let header = new Header().wrapper;
 document.querySelector(".wrapper").appendChild(header);
 
-
-// console.log(location)
-// console.log(window)
-
 const available_languages  = ["en", "pl"],
     default_languages      = "en",
     default_class          = "lang",
@@ -149,30 +145,26 @@ document.querySelector(".nav__item_favorites").addEventListener("click", () =>{
     document.querySelector(".modalFavorites").classList.toggle("active")
 })
 
-// ыфыфыфыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы
-// document.querySelectorAll(".modal__close").forEach(close => {
-//     // обработка закрытия модал
-//     let modals = Array.from(document.querySelectorAll(".modal"));
-//     close.addEventListener("click", function(){
-//         let current_modal = modals.filter(modal => !modal.classList.contains("active"))[0];
-//         current_modal.classList.toggle("active")
-//         if (current_modal.classList.contains("modalEntrance")){
-//             document.querySelector(".modalEntrance__group_active").classList.remove("modalEntrance__group_active")
-//         }
-//     })
-// })
 document.querySelectorAll(".modal").forEach(modal =>{
     // Closing background modal
     modal.addEventListener("click", function(){
         this.classList.add("active")
-        this.querySelector(".modal__body").addEventListener("click", function(event){
-            // stop immersing the event
-            event.stopImmediatePropagation()
-        })
+        if(this.querySelector(".form__SignUp")){
+            sign_up.classList.add("form__active")
+            toggle.classList.remove("toggle__active")
+
+            log_in.style.opacity = "1"
+
+            document.querySelector(".toggle__img").classList.remove("hidden__active");
+        }
     })
 })
+document.querySelector(".modal__body").addEventListener("click", function(event){
+    // stop immersing the event
+    event.stopImmediatePropagation()
+})
 
-document.querySelector(".modalNotification__btn").addEventListener("click",(event)=>{
+document.querySelector(".modalNotification__btn").addEventListener("click",(event) =>{
     event.target.closest(".modal").classList.toggle("active")
 })
 
@@ -212,9 +204,9 @@ async function create_slider(){
 
 document.querySelectorAll(".nav__sorted").forEach(div =>{
     div.addEventListener("click", (event) =>{
-         // удаляем начальный слайдер на странице
+         // remove the initial slider on the page
         document.querySelector(".slider").remove()
-        // При клике создаем слайдер на основе выбранного пункта сортировки
+        // On click, create a slider based on the selected sort item
         if(event.target.classList.contains("nav__item_best")){
             slider.then(data => data(true,true))
         }else{
