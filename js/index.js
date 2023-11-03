@@ -45,7 +45,7 @@ document.querySelector(".close").addEventListener("click", function(event){
 
 
 let users_rg = []
-document.querySelectorAll(".form").forEach(item =>{
+document.querySelectorAll(".form__verification").forEach(item =>{
     let form = new Form(item);
     
     form.form_Wrapper.addEventListener("submit", (link) =>{
